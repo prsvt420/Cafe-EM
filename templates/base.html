@@ -14,9 +14,12 @@
 </head>
 <body>
     <div id="root">
-        {% include 'includes/header.html' %}
+        <div id="content">
+            {% include 'includes/header.html' %}
             {% block content %}{% endblock %}
-        {% include 'includes/footer.html' %}
+            {% include 'includes/footer.html' %}
+        </div>
+
     </div>
     <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
     {% block js %}{% endblock %}

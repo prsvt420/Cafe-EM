@@ -28,6 +28,9 @@ INSTALLED_APPS: List[str] = [
     "django_filters",
     "drf_yasg",
     "csp",
+    "apps.core",
+    "apps.dishes",
+    "apps.orders",
 ]
 
 MIDDLEWARE: List[str] = [

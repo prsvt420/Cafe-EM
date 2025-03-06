@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Заказы
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'orders/css/orders.css' %}">
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'orders/js/search.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+        <p class="orders-revenue">Выручка: <span>{{ orders_revenue }} ₽</span></p>
+
+        <table class="table table-bordered">
+            <thead class="thead-orders">
+                <tr>
+                    <th>ID</th>
+                    <th>№ стола</th>
+                    <th>Список блюд</th>
+                    <th>Общая стоимость</th>
+                    <th>Статус</th>
+                </tr>
+            </thead>
+            <tbody class="tbody-orders">
+                {% for order in orders %}
+                <tr onclick="location.href='{{ order.get_absolute_update_url }}';">
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.table_number }}</td>
+                    <td>
+                        {{ order.dishes.all|join:", " }}
+                    </td>
+                    <td>{{ order.total_price }} ₽</td>
+                    <td class="status-{{ order.status|lower }}">
+                        {{ order.get_status_display }}
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center">Заказов нет</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="buttons">
+            <a href="{% url 'orders:order-create' %}" class="btn btn-primary">Создать заказ</a>
+        </div>
+    </div>
+
+{% endblock %}

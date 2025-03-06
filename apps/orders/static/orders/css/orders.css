@@ -1,0 +1,103 @@
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    font-size: 1.2rem;
+    min-height: 600px;
+}
+
+.orders-revenue {
+    padding: 20px 0;
+    font-size: 1.3rem;
+    align-self: flex-start;
+
+    span {
+        color: green;
+    }
+}
+
+.status-pg {
+    color: red;
+}
+.status-rd {
+    color: green;
+}
+.status-pd {
+    color: rgb(14, 18, 131);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border: 2px solid var(--second-color);
+}
+
+th {
+    background-color: var(--second-color);
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(95, 90, 90, 0.1);
+}
+
+tr:hover {
+    background-color: rgba(27, 23, 23, 0.2);
+}
+
+tbody tr {
+    transition: background-color 0.3s;
+}
+
+.buttons {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+
+    a {
+        font-size: 1.2rem;
+        color: var(--base-font-color);
+        padding: 10px 20px;
+        background-color: var(--second-color);
+        border-radius: var(--border-radius);
+        transition: var(--transition);
+    }
+
+    a:hover {
+        transition: var(--transition);
+        box-shadow: var(--box-shadow);
+        color: var(--first-color);
+    }
+}
+
+@media (max-width: 750px) {
+    th, td {
+        padding: 8px;
+        font-size: 0.9rem;
+    }
+
+    .buttons {
+        a {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media (max-width: 400px) {
+    th, td {
+        padding: 5px;
+    }
+}

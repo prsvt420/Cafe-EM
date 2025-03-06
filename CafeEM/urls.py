@@ -4,10 +4,12 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 urlpatterns: List = [
     path("admin/", admin.site.urls),
+    path("", include("apps.core.urls", namespace="core"), name="core"),
+    path("orders/", include("apps.orders.urls", namespace="orders"), name="orders"),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% load dish_tags %}
+
+{% block title %}
+Создание заказа
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'orders/css/order-form.css' %}">
+{% endblock %}
+
+{% block content %}
+{% get_all_dishes as dishes %}
+<div class="container">
+    <form method="post" class="order-form">
+        {% csrf_token %}
+
+        <p>
+            <label for="id_table_number">Номер столика{% if form.table_number.errors %}<span class="error"> ({{ form.table_number.errors.0|cut:"."|lower }})</span>{% endif %}:</label>
+
+            <input type="number" name="table_number" value="" min="1" id="id_table_number" class="form-input">
+        </p>
+        <p>
+            <label for="id_dishes">Блюда{% if form.dishes.errors %}<span class="error"> ({{ form.dishes.errors.0|cut:"."|lower }})</span>{% endif %}:</label>
+            <select name="dishes" id="id_dishes" multiple="" class="form-select">
+                {% for dish in dishes %}
+                <option value="{{ dish.id }}">{{ dish.name }}</option>
+                {% endfor %}
+            </select>
+        </p>
+        <div class="buttons">
+            <input type="submit" value="Добавить">
+            <a href="{% url 'orders:orders' %}">Отмена</a>
+        </div>
+
+    </form>
+</div>
+{% endblock %}
