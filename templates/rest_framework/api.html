@@ -1,0 +1,14 @@
+{% extends "rest_framework/base.html" %}
+
+{% load static %}
+
+{% block style %}
+    {{ block.super }}
+        <link rel="icon" href="{% static 'img/favicon.ico' %}">
+{% endblock %}
+
+{% block title %}Cafe EM API{% endblock %}
+
+{% block branding %}
+<a class='navbar-brand' rel="nofollow" href='{% url "orders:orders" %}'>Cafe EM</a>
+{% endblock %}

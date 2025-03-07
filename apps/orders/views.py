@@ -36,7 +36,9 @@ class OrdersListView(ListView):
             Dict: Словарь с данными для шаблона
         """
         context: Dict = super().get_context_data(**kwargs)
-        context["orders_revenue"] = OrderRepository().get_revenue()
+
+        if self.queryset:
+            context["orders_revenue"] = OrderRepository().get_revenue()
 
         return context
 
@@ -58,13 +60,14 @@ class OrdersListView(ListView):
             if orders.exists():
                 return orders
 
-        return OrderRepository.get_orders()
+        self.queryset = OrderRepository.get_orders()
+
+        return self.queryset
 
     def get(self, request: HttpRequest, *args, **kwargs) -> JsonResponse | HttpResponse:
         """
         Обрабатывает GET-запрос
         """
-
         if request_is_ajax(request):
             orders: QuerySet[Order] = self.get_queryset()
 

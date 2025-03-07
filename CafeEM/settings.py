@@ -31,6 +31,7 @@ INSTALLED_APPS: List[str] = [
     "apps.core",
     "apps.dishes",
     "apps.orders",
+    "apps.api",
 ]
 
 MIDDLEWARE: List[str] = [
@@ -110,6 +111,10 @@ MEDIA_ROOT: Path = BASE_DIR / "media"
 FIXTURE_DIRS: List = [
     "fixtures",
 ]
+
+REST_FRAMEWORK: Dict = {
+    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"]
+}
 
 DEFAULT_AUTO_FIELD: str = "django.db.models.BigAutoField"
 

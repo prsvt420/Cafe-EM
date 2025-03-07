@@ -10,6 +10,7 @@ urlpatterns: List = [
     path("admin/", admin.site.urls),
     path("", include("apps.core.urls", namespace="core"), name="core"),
     path("orders/", include("apps.orders.urls", namespace="orders"), name="orders"),
+    path("api/", include("apps.api.urls", namespace="api"), name="api"),
 ]
 
 if settings.DEBUG:

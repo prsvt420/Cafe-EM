@@ -7,6 +7,8 @@ from apps.orders.models import Order
 
 
 class OrderRepository:
+    """Репозиторий для работы с заказами"""
+
     @staticmethod
     def get_orders() -> QuerySet[Order]:
         """

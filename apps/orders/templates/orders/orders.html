@@ -16,7 +16,7 @@
 {% block content %}
     <div class="container">
 
-        <p class="orders-revenue">Выручка: <span>{{ orders_revenue }} ₽</span></p>
+        <p class="orders-revenue">Выручка: <span>{{ orders_revenue|default:"0.00" }} ₽</span></p>
 
         <table class="table table-bordered">
             <thead class="thead-orders">

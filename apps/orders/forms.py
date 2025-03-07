@@ -5,6 +5,8 @@ from apps.orders.models import Order
 
 
 class OrderForm(forms.ModelForm):
+    """Форма для работы с заказами"""
+
     class Meta:
         model: type = Order
         fields: tuple = ("table_number", "dishes", "status")
