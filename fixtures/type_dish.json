@@ -1,0 +1,30 @@
+[
+{
+  "model": "dishes.typedish",
+  "pk": 1,
+  "fields": {
+    "name": "Закуска"
+  }
+},
+{
+  "model": "dishes.typedish",
+  "pk": 2,
+  "fields": {
+    "name": "Основное блюдо"
+  }
+},
+{
+  "model": "dishes.typedish",
+  "pk": 3,
+  "fields": {
+    "name": "Десерт"
+  }
+},
+{
+  "model": "dishes.typedish",
+  "pk": 4,
+  "fields": {
+    "name": "Напиток"
+  }
+}
+]

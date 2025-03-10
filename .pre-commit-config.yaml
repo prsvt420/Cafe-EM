@@ -32,6 +32,13 @@ repos:
         name: mypy
         entry: python mypy.py
         language: system
-        types: [python]
+        types: [ python ]
         pass_filenames: false
+        require_serial: true
+
+      - id: run-django-tests
+        name: Run Django Tests
+        entry: make tests
+        language: system
+        types: [ python ]
         require_serial: true

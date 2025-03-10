@@ -34,11 +34,6 @@ def main() -> None:
         {"variable": "POSTGRES_DB", "prompt": "Enter the POSTGRES_DB: "},
         {"variable": "POSTGRES_USER", "prompt": "Enter the POSTGRES_USER: "},
         {"variable": "POSTGRES_PASSWORD", "prompt": "Enter the POSTGRES_PASSWORD: "},
-        {
-            "variable": "POSTGRES_HOST",
-            "prompt": "Enter the POSTGRES_HOST (docker container name) [database]: ",
-            "default_value": "database",
-        },
     ]
 
     print("Creating .env file...")  # noqa

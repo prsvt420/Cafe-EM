@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "cafe em"
+name = "cafe-em"
 version = "0.1.0"
 description = ""
 authors = ["Denis Tokarev <wf.denis.tokarev@gmail.com>"]
